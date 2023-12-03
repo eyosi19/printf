@@ -94,8 +94,7 @@ int _printf(const char *format, ...)
 				count += write_percent();
 			else
 			{
-				va_end(args);
-				return (-1);
+				count += write(1, format - 1, 2 * sizeof(char));
 			}
 		}
 		else
