@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * _printf - printf function
  *
@@ -17,13 +18,9 @@ int _printf(const char *format, ...)
 	char c;
 
 	va_start(args, format);
-
 	count = 0;
-
 	if (!format || !*format)
-	{
 		return (-1);
-	}
 
 	while (*format)
 	{
@@ -52,7 +49,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-
 	va_end(args);
 	return (count);
 }
