@@ -68,11 +68,8 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-
 			if (*format == '\0')
-			{
 				break;
-			}
 			if (*format == 's')
 			{
 				count += write_str(va_arg(args, char *));
@@ -84,6 +81,10 @@ int _printf(const char *format, ...)
 			else if (*format == '%')
 			{
 				count += write_percent();
+			}
+			else
+			{
+				count += write(1, format - 1, 2);
 			}
 		}
 		else
