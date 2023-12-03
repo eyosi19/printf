@@ -1,5 +1,49 @@
 #include "main.h"
 
+/**
+ * write_char - write char
+ *
+ * @c: the char
+ *
+ * Return: return the char
+ */
+
+int write_char(char c)
+{
+	return (write(1, &c, 1));
+}
+/**
+ * write_str - write a string
+ *
+ * @str: the string
+ *
+ * Return: return the string
+ */
+
+int write_str(const char *str)
+{
+	size_t len;
+
+	len 0;
+
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	return (write(1, str, len));
+}
+
+/**
+ * write_percent - write a percent sign
+ *
+ * Return: return %
+ */
+
+int write_percent(void)
+{
+	return (write(1, "%", 1));
+}
+
 
 /**
  * _printf - printf function
@@ -22,25 +66,27 @@ int _printf(const char *format, ...)
 	if (!format || !*format)
 		return (-1);
 
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-
+		}
+			if (*format == '\0')
+			{
+				break;
+			}
 			if (*format == 's')
 			{
-				str = va_arg(args, const char *);
-				if (str != NULL)
-				{
-					len = strlen(str);
-					count += write(1, str, len);
-				}
+				count += write_str(va_arg(args, char *));
 			}
 			else if (*format == 'c')
 			{
-				c = va_arg(args, int);
-				count += write(1, &c, 1);
+				count += write_char(va_arg(args, int);
+			}
+			else if (*format == '%')
+			{
+				count += write_percent();
 			}
 		}
 		else
