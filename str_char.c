@@ -23,14 +23,22 @@ int write_char(char c)
 int write_str(const char *str)
 {
 	size_t len;
+	const char *null_str;
 
-	if (str == NULL)
+	len = 0;
+
+	if (str != NULL)
 	{
 		while (str[len] != '\0')
 		{
-			len++
+			len++;
 		}
 		return (write(1, str, len));
+	}
+	else
+	{
+		null_str = "(null)";
+		return (write(1, null_str, 6));
 	}
 }
 
