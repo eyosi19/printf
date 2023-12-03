@@ -10,7 +10,7 @@
 
 int write_char(char c)
 {
-	return (write(1, &c, 1));
+	return (write(1, &c, sizeof(char)));
 }
 /**
  * write_str - write a string
@@ -24,13 +24,14 @@ int write_str(const char *str)
 {
 	size_t len;
 
-	len = 0;
-
-	while (str[len] != '\0')
+	if (str == NULL)
 	{
-		len++;
+		while (str[len] != '\0')
+		{
+			len++
+		}
+		return (write(1, str, len));
 	}
-	return (write(1, str, len));
 }
 
 /**
@@ -41,7 +42,7 @@ int write_str(const char *str)
 
 int write_percent(void)
 {
-	return (write(1, "%", 1));
+	return (write(1, "%", sizeof(char)));
 }
 
 
@@ -84,12 +85,12 @@ int _printf(const char *format, ...)
 			}
 			else
 			{
-				count += write(1, format - 1, 2);
+				count += write(1, format - 1, 2 * sizeof(char));
 			}
 		}
 		else
 		{
-			count += write(1, format, 1);
+			count += write(1, format, sizeof(char));
 		}
 		format++;
 	}
