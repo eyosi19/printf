@@ -24,7 +24,7 @@ int write_str(const char *str)
 {
 	size_t len;
 
-	len 0;
+	len = 0;
 
 	while (str[len] != '\0')
 	{
@@ -57,9 +57,6 @@ int _printf(const char *format, ...)
 {
 	int count;
 	va_list args;
-	const char *str;
-	size_t len;
-	char c;
 
 	va_start(args, format);
 	count = 0;
@@ -71,7 +68,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-		}
+
 			if (*format == '\0')
 			{
 				break;
@@ -82,7 +79,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				count += write_char(va_arg(args, int);
+				count += write_char(va_arg(args, int));
 			}
 			else if (*format == '%')
 			{
