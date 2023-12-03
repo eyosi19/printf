@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _printf - my own printf function
+ * _printf - printf function
  *
- * @format: the format
+ * @format: the format specifier
  *
  * Return: count
  */
@@ -12,44 +12,41 @@ int _printf(const char *format, ...)
 {
 	int count;
 	va_list args;
-
-	count = 0;
+	const char *str;
+	size_t len;
+	char c;
 
 	va_start(args, format);
 
-	if (!*format || !format)
-	{
-		return (-1);
-	}
+	count = 0;
 
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-
-			switch(*format)
+			if (*format == 's')
 			{
-				case 's':
-					count += write(1, va_arg(args, const char*), sizeof(char));
-					break;
-				case 'c':
-					{
-						char c = (char)va_arg(args, int);
-						count += write(1, &c, sizeof(char));
-					}
-					break;
-				default:
-					return (-1);
+				str = va_arg(args, const char *);
+				if (str != NULL)
+				{
+					len = strlen(str);
+					count += write(1, str, len);
+				}
+			}
+			else if (*format == 'c')
+			{
+				c = (char)va_arg(args, int);
+				count += write(1, &c, 1);
 			}
 		}
 		else
 		{
-			count += write(1, format, sizeof(char));
+			count += write(1, format, 1);
 		}
-
 		format++;
+	}
 
-		va_end(args);
-		return (count);
+	va_end(args);
+	return (count);
 }
