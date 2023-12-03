@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * write_char - write char
  *
@@ -66,12 +66,12 @@ int _printf(const char *format, ...)
 {
 	int count;
 	va_list args;
+	char c;
 
 	va_start(args, format);
 	count = 0;
 	if (!format || !*format)
 		return (-1);
-
 	while (*format)
 	{
 		if (*format == '%')
@@ -85,7 +85,8 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'c')
 			{
-				count += write_char(va_arg(args, int));
+				c =	(char)va_arg(args, int);
+				count += write_char(c);
 			}
 			else if (*format == '%')
 			{
@@ -97,9 +98,7 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			count += write(1, format, sizeof(char));
-		}
 		format++;
 	}
 	va_end(args);
