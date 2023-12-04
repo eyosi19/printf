@@ -7,7 +7,7 @@
  * Return: return the char
  */
 
-int write_char(char c)
+int write_char(int c)
 {
 	return (write(1, &c, sizeof(char)));
 }
@@ -21,18 +21,20 @@ int write_char(char c)
 
 int write_str(const char *str)
 {
-	size_t len;
+	int count;
 	const char *null_str;
 
-	len = 0;
+	count = 0;
 
 	if (str != NULL)
 	{
-		while (str[len] != '\0')
+		while (*str)
 		{
-			len++;
+			write_char((int)*str);
+			count++;
+			str++;
 		}
-		return (write(1, str, len));
+		return (count);
 	}
 	else
 	{
@@ -91,11 +93,11 @@ int _printf(const char *format, ...)
 				count += write_percent();
 			else
 			{
-				count += write(1, &format - 1, 2 * sizeof(char));
+				count += write(1, format - 1, 2 * sizeof(char));
 			}
 		}
 		else
-			count += write(1, &format, sizeof(char));
+			count += write(1, format, sizeof(char));
 		format++;
 	}
 	va_end(args);
