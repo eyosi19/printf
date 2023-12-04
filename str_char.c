@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 /**
  * write_char - write char
  *
