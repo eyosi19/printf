@@ -11,16 +11,9 @@
 
 int print_str(char *str)
 {
-	int count;
-	int len;
-
-	len = 0;
-	count = 0;
-
-	while (str[len] != '\0')
-		len++;
-
-	count += write(1, str, len);
+	if (str == NULL)
+		str = "(null)";
+	count += write(1, str, strlen(str));
 
 	return (count);
 }
