@@ -77,8 +77,6 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			if (*format == '\0')
-				break;
 			if (*format == 's')
 			{
 				str = va_arg(args, const char *);
