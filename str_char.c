@@ -91,11 +91,11 @@ int _printf(const char *format, ...)
 				count += write_percent();
 			else
 			{
-				count += write(1, format - 1, 2 * sizeof(char));
+				count += write(1, &format - 1, 2 * sizeof(char));
 			}
 		}
 		else
-			count += write(1, format, sizeof(char));
+			count += write(1, &format, sizeof(char));
 		format++;
 	}
 	va_end(args);
