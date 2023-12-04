@@ -1,4 +1,18 @@
 #include "main.h"
+
+/**
+ * print_char - print char
+ *
+ * @c: the char
+ *
+ * Return: count
+ */
+
+int print_char(char c)
+{
+	return (write(1, &c, 1));
+}
+
 /**
  * _printf - custom printf
  *
@@ -9,9 +23,11 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int count;
 	va_list args;
 	char *str;
+
+	count = 0;
 
 	if (!format)
 		return (-1);
@@ -29,9 +45,7 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == 'c')
 			{
-				char c = va_arg(args, int);
-
-				count += write(1, &c, 1);
+				count += print_char(va_arg(args, int));
 			}
 			else if (*format == 's')
 			{
