@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * _printf - custom print
+ *
+ * @format: format specifier
+ *
+ * Return: count;
+ */
 
 int _printf(const char *format, ...)
 {
@@ -8,7 +15,7 @@ int _printf(const char *format, ...)
 
 	va_start(list, format);
 
-	while(*format)
+	while (*format)
 	{
 		if (*format != '%')
 		{
@@ -17,7 +24,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			format++;
-			
+
 			if (*format == 's')
 			{
 				count += print_s(va_arg(list, char *));
