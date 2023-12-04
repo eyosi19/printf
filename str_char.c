@@ -22,12 +22,8 @@ int write_char(int c)
 int write_str(const char *str)
 {
 	int count;
-	const char *null_str;
 
 	count = 0;
-
-	if (str != NULL)
-	{
 		while (*str)
 		{
 			write_char((int)*str);
@@ -35,12 +31,6 @@ int write_str(const char *str)
 			str++;
 		}
 		return (count);
-	}
-	else
-	{
-		null_str = "(null)";
-		return (write(1, null_str, 6));
-	}
 }
 
 /**
