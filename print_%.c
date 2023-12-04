@@ -8,5 +8,5 @@
 
 int print_percent(void)
 {
-	return (_putchar('%'));
+	return (_putchar(37));
 }

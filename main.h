@@ -9,5 +9,6 @@ int _putchar(char c);
 int print_s(char *str);
 int print_c(char c);
 int print_percent(void);
+int _strlen(char *str);
 
 #endif

@@ -11,18 +11,27 @@
 
 int print_s(char *str)
 {
-	int i, count = 0;
+	int i, length;
 
-	for (i = 0; str[i] != '\0'; i++)
+	if (str == NULL)
 	{
-		if (_putchar(str[i]) >= 0)
+		str = "(null)";
+		length = _strlen(str);
+
+		for (i = 0; i < length; i++)
 		{
-			count++;
+			_putchar(str[i]);
 		}
-		else
-		{
-			return (-1);
-		}
+		return (length);
 	}
-	return (count);
+	else
+	{
+		length = _strlen(str);
+
+		for (i = 0; i < length; i++)
+		{
+			_putchar(str[i]);
+		}
+		return (length);
+	}
 }
