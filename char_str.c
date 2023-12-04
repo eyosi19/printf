@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -19,8 +20,7 @@ int print_str(char *str)
 	while (str[len] != '\0')
 		len++;
 
-	write(1, str, len);
-	count += len;
+	count += write(1, str, len);
 
 	return (count);
 }
@@ -36,6 +36,17 @@ int print_str(char *str)
 int print_char(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+ * print_percent - print a percent sign
+ *
+ * Return: the printed value with percent sign
+ */
+
+int print_percent(void)
+{
+	return (write(1, "%", 1));
 }
 
 /**
@@ -72,16 +83,15 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == 'c')
 			{
-				print_char(va_arg(args, int));
+				count += print_char(va_arg(args, int));
 			}
 			if (*format == 's')
 			{
-				print_str(va_arg(args, char *));
+				count += print_str(va_arg(args, char *));
 			}
 			if (*format == '%')
 			{
-				write(1, format, 1);
-				count++;
+				count += print_percent();
 			}
 		}
 		format++;
