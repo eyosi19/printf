@@ -12,11 +12,9 @@ int _printf(const char *format, ...)
 {
 	pair y[] = {
 		{"%c", _char}, {"%s", _string}, {"%%", _percent},
-<<<<<<< HEAD
-		{"%i", _integer}, {"%d", _decimal}, {"%b", _binary}
-=======
-		{"%i", _integer}, {"%d", _decimal}, {"%u", _unsigned}
->>>>>>> bbdd1e2 (TEAMWORK)
+		{"%i", _integer}, {"%d", _decimal}, {"%b", _binary},
+		{"%i", _integer}, {"%d", _decimal}, {"%u", _unsigned},
+		{"%o", _octal}, {"%x", _hexadecimal}, {"%X", _HEXADECIMAL}
 	};
 
 	int k;

@@ -27,10 +27,10 @@ int _char(va_list list);
 int _percent(void);
 int _integer(va_list list);
 int _decimal(va_list list);
-<<<<<<< HEAD
 int _binary(va_list list);
-=======
 int _unsigned(va_list list);
->>>>>>> bbdd1e2 (TEAMWORK)
+int _octal(va_list list);
+int _hexadecimal(va_list list);
+int _HEXADECIMAL(va_list list);
 
 #endif
