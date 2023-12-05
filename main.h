@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * struct print - the name of the struct
