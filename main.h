@@ -6,9 +6,10 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int print_s(char *str);
-int print_c(char c);
-int print_percent(void);
 int _strlen(char *str);
+int _strlen_const(const cahr *str);
+int _string(va_list list);
+int _char(va_list list);
+int _percent(void);
 
 #endif
