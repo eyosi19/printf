@@ -1,4 +1,4 @@
-#inlcude "main.h"
+#include "main.h"
 
 /**
  * _string - prints string
@@ -11,31 +11,21 @@
 int _string(va_list list)
 {
 	char *str;
-	char i;
-	int len;
+	int len, i;
 
 	str = va_arg(list, char *);
 
 	if (str == NULL)
 	{
-		str == "(null)";
-		len = _strlen(str);
-
-		for (i = 0; i < len; i++)
-		{
-			_putchar(str[i]);
-		}
-		return (len);
+		str = "(null)";
 	}
-	else
+
+	len = _strlen(str);
+
+	for (i = 0; i < len; i++)
 	{
-		len = _strlen(str);
-
-		for (i = 0; i < len; i++)
-		{
-			_putchar(str[i]);
-		}
-
-		return (len);
+		_putchar(str[i]);
 	}
+
+	return (len);
 }
