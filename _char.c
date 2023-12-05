@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * _char = print a char
+ * _char - print a char
  *
  * @list: the arguments
- *
+ * Description: this function prints a char
  * Return: 1
  */
 
