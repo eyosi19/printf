@@ -4,7 +4,7 @@
  * _char - print a char
  *
  * @list: the arguments
- *
+ * Description: this function prints a char
  * Return: 1
  */
 
