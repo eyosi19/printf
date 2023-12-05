@@ -11,9 +11,15 @@
 int _binary(va_list list)
 {
 	unsigned int num = va_arg(list, unsigned int);
-	int binary[32];
+	int binary[64];
 	int i = 0;
 	int j;
+
+	if (num == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
 	while (num > 0)
 	{
@@ -27,5 +33,5 @@ int _binary(va_list list)
 		_putchar('0' + binary[j]);
 	}
 
-	return (1);
+	return (i);
 }
