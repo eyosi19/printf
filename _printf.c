@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 	}
 
 loop:
-	while (format[i] != '\0')
+	while (format[i] == '\0')
 	{
 		k = 4;
 
