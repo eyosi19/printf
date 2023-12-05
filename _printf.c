@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	pair y[] = {
 		{"%c", _char}, {"%s", _string}, {"%%", _percent},
-		{"%i", _integer}, {"%d", _decimal}
+		{"%i", _integer}, {"%d", _decimal}, {"%b", _binary}
 	};
 
 	int k;
@@ -28,7 +28,7 @@ int _printf(const char *format, ...)
 loop:
 	while (format[i] != '\0')
 	{
-		k = 4;
+		k = 5;
 
 		while (k >= 0)
 		{

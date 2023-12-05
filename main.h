@@ -27,5 +27,6 @@ int _char(va_list list);
 int _percent(void);
 int _integer(va_list list);
 int _decimal(va_list list);
+int _binary(va_list list);
 
 #endif
