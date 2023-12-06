@@ -15,7 +15,6 @@ int _printf(const char *format, ...)
 		{"%i", _integer}, {"%d", _decimal}, {"%b", _binary},
 		{"%i", _integer}, {"%d", _decimal}, {"%u", _unsigned},
 		{"%o", _octal}, {"%x", _hexadecimal}, {"%X", _HEXADECIMAL},
-		{"%S", _EXTRA}
 	};
 
 	int k;
@@ -31,7 +30,7 @@ int _printf(const char *format, ...)
 loop:
 	while (format[i] != '\0')
 	{
-		k = 12;
+		k = 11;
 
 		while (k >= 0)
 		{
