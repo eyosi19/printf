@@ -10,41 +10,35 @@
 
 int _unsigned(va_list list)
 {
-	int n = va_arg(list, int);
-	int num, last = n % 10, dig, ex = 1;
-	int i = 1;
+	unsigned int n = va_arg(list, int);
+	unsigned int num = n;
+	unsigned int last;
+	unsigned int ex = 1;
+	int i = 0;
 
-	n = n / 10;
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num / 10 != 0)
+	{
+		ex *= 10;
+		num /= 10;
+	}
+
 	num = n;
 
-	if (last < 0)
+	while (ex > 0)
 	{
-		_putchar('-');
-		num = -num;
-		n = -n;
-		last = -last;
+		last = num / ex;
+		_putchar(last + '0');
+		num = num - (last * ex);
+		ex /= 10;
 		i++;
 	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			ex = ex * 10;
-			num = num / 10;
-		}
-		num = n;
-
-		while (ex > 0)
-		{
-			dig = num / ex;
-			_putchar(dig + '0');
-			num = num - (dig * ex);
-			ex = ex / 10;
-			i++;
-		}
-	}
-	
-	_putchar(last + '0');
 
 	return (i);
+
 }

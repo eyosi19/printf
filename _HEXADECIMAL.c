@@ -21,7 +21,7 @@ int _HEXADECIMAL(va_list list)
 		count++;
 	}
 	count++;
-	
+
 	arr = malloc(count * sizeof(int));
 
 	for (i = 0; i < count; i++)

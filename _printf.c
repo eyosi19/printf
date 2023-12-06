@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 loop:
 	while (format[i] != '\0')
 	{
-		k = 5;
+		k = 11;
 
 		while (k >= 0)
 		{
