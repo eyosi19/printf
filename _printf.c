@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		{"%c", _char}, {"%s", _string}, {"%%", _percent},
 		{"%i", _integer}, {"%d", _decimal}, {"%b", _binary},
 		{"%i", _integer}, {"%d", _decimal}, {"%u", _unsigned},
-		{"%o", _octal}, {"%x", _hexadecimal}, {"%X", _HEXADECIMAL}
+		{"%o", _octal}, {"%x", _hexadecimal}, {"%X", _HEXADECIMAL},
+		{"%S", _EXTRA}
 	};
 
 	int k;
