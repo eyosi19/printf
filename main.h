@@ -33,6 +33,6 @@ int _unsigned(va_list list);
 int _octal(va_list list);
 int _hexadecimal(va_list list);
 int _HEXADECIMAL(va_list list);
-int _EXTRA(unsigned int num);
+int _EXTRA(unsigned int n);
 
 #endif

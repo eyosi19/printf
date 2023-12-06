@@ -8,11 +8,10 @@
  * Return: count
  */
 
-int _EXTRA(unsigned int num)
+int _EXTRA(unsigned int n)
 {
 	int i, count = 0;
 	int *arr;
-	unsigned int n = va_arg(list, unsigned int);
 	unsigned int t = n;
 
 	while (n / 16 != 0)
